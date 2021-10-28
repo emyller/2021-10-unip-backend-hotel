@@ -1,3 +1,4 @@
+import os
 import psycopg2
 from flask import Flask, request
 from flask_cors import CORS
@@ -9,7 +10,7 @@ CORS(app)
 @app.route('/quartos/', methods=['GET', 'POST'])
 def quartos():
     # Abre uma conexão com o banco de dados
-    connection = psycopg2.connect('postgres://postgres@database/postgres')
+    connection = psycopg2.connect(os.getenv('DATABASE_URL'))
     cursor = connection.cursor()
 
     if request.method == 'POST':

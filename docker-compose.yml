@@ -13,6 +13,7 @@ services:
       - database
     environment:
       FLASK_ENV: development
+      DATABASE_URL: postgres://postgres@database/postgres
 
   # Main database
   database:

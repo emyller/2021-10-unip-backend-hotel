@@ -6,6 +6,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+port = os.getenv('PORT', 5000)
+
 
 @app.route('/quartos/', methods=['GET', 'POST'])
 def quartos():
@@ -69,3 +71,7 @@ def hospedes():
 @app.route('/reservas/')
 def reservas():
     return 'alô xuxa'
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=port)
